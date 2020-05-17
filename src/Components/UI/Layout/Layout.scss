@@ -1,0 +1,28 @@
+@import 'vars.scss';
+
+.Layout {
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+}
+
+.flexColum {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.spaceBetween {
+  display: flex;
+  justify-content: space-between;
+}
+
+.spaceAround {
+  display: flex;
+  justify-content: space-evenly;
+}

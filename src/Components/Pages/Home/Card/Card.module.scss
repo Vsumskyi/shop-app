@@ -1,0 +1,12 @@
+@import 'vars.scss';
+.Card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  background-color: $clr300;
+  padding: 10px;
+  img {
+    height: 250px;
+  }
+}

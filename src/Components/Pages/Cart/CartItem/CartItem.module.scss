@@ -1,0 +1,36 @@
+@import 'vars.scss';
+
+.CartItem {
+  width: 70vw;
+  background-color: $clr100;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid $clr400;
+  h3 {
+    flex-grow: 1;
+  }
+  img {
+    width: 30px;
+    max-height: 40px;
+    align-self: flex-end;
+    margin-right: 15px;
+  }
+
+  .btns {
+    margin-left: 25px;
+    button {
+      border: none;
+      color: $mainclr;
+      background: transparent;
+      cursor: pointer;
+    }
+  }
+
+  span {
+    width: 40px;
+    color: $clr500;
+  }
+
+}
