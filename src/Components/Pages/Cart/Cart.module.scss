@@ -1,0 +1,30 @@
+@import 'vars.scss';
+
+.Cart {
+  display: flex;
+  justify-content: center;
+  .calc {
+    background-color: $clr300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+    h2 {
+      margin: 0;
+      display: inline-block;
+      font-size: 34px;
+    }
+    button {
+      background-color: rgba(67,160,71 ,1);
+      box-shadow: 6px 7px 10px -7px #000000;
+      color: $clr100;
+      border: none;
+      border-radius: 3px;
+      width: 40%;
+      height: 40px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+  }
+}

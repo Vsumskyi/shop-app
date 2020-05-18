@@ -1,0 +1,11 @@
+@import 'vars.scss';
+
+.Footer {
+  width: 100%;
+  background-color: $clr900;
+  height: 50px;
+  color: $clr50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
