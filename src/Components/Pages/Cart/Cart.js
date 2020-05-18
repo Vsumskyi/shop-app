@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import classes from './Cart.module.scss'
 import { CartItem } from './CartItem/CartItem';
@@ -25,48 +25,52 @@ const data = [
      price: 15,
      count: 1
   },
-  
 ]
 
 export const Cart = () => {
  
   const [products, setProducts] = useState(data)
+  const [countPrice, setCountPrice] = useState(0)
+
+  useEffect(() => {
+    countAll()
+    // eslint-disable-next-line
+  },[])
 
   const productsHandler = (id, count) => {
-    let cloned = [...products].map(i => {
-      if (i.id === id ) {
-        i.count += count
-      }
-      return i
+    if (count !== 'delete') {
+    const cloned = [...products].map(i => {
+      if (count === 'add' && i.id === id) {
+        i.count += 1
+       } else if (count === 'substract' && i.id === id) {
+        i.count -= 1
+       } 
+       return i
     })
     setProducts(cloned)
 
-    if (!count) {
-      setProducts([...products].filter(i => i.id !== id))
+  } else {
+      setProducts(products.filter(i => i.id !== id))
     }
+    countAll()
   }
-
+  
   const countAll = () => {
-    let res = 0;
-    [...products].forEach(i => res += (i.count * i.price))
-   return res
+    setCountPrice(products.reduce((acc,curr) => acc += curr.count * curr.price,0))
   }
 
-  const renderProducts = () => {
-    return (
+  const renderProducts = () => (
       <div className={classes.products}>
-       {products.map(item => {
-         return (
-             <CartItem 
-                key={item.id}
-                product={item} 
-                productsHandler={productsHandler}
-              />
-           )
-       })}
+       {products.map(item => (
+          <CartItem 
+            key={item.id}
+            product={item} 
+            productsHandler={productsHandler}
+          />
+        )
+       )}
       </div>
     )
-   }
 
   return (
   <div className={classes.Cart}> 
@@ -77,7 +81,7 @@ export const Cart = () => {
       :  
       <div className={classes.calc}>
         <div>
-          <span>Сумма: <h2>{countAll()}</h2> грн</span>
+          <span>Сумма: <h2>{countPrice}</h2> грн</span>
         </div>
         <button>Купить сейчас</button>
       </div>
