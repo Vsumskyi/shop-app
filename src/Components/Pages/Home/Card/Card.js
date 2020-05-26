@@ -1,31 +1,21 @@
-import React, { useState } from 'react'
-import ReactCardFlip from 'react-card-flip'
+import React from 'react'
 
 import classes from './Card.module.scss'
+import {ProductCounter} from 'Components/UI/ProductCounter'
 
-export const Card = ({ card }) => {
-  const [isFlipped, setFlipped] = useState(false)
-
-  const flippedHandler = () => {
-      setFlipped(!isFlipped)
-  }
+export const Card = ({ product, selectProduct }) => {
   return (
-    <ReactCardFlip isFlipped={isFlipped}>
       <div 
-        className={classes.Card}
-        onClick={flippedHandler}
-      >
-        <img alt="example" src={card.image} />
-        <span>{card.name} </span> 
-      </div>
+        className={classes.Card}>
+        <img alt="example" src={product.image} />
+        <span>{product.name} </span> 
+        <span>{product.count}</span>
 
-      <div 
-        className={classes.Card}
-        onClick={flippedHandler}
-      >
-        <img alt="example" src={card.image} />
-        <span>{card.price} </span> 
+       {product.inCart
+       ?
+       <ProductCounter product={product}/>
+       :
+       <button onClick={() => selectProduct(product)}>В корзину</button> }
       </div>
-    </ReactCardFlip>
   )
 }

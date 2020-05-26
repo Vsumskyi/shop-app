@@ -1,0 +1,15 @@
+@import 'vars.scss';
+
+.ProductCounter {
+  margin-left: 25px;
+  button {
+    border: none;
+    color: $mainclr;
+    background: transparent;
+    cursor: pointer;
+  }
+  span {
+    width: 40px;
+    color: $clr500;
+  }
+}

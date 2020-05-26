@@ -17,20 +17,4 @@
     align-self: flex-end;
     margin-right: 15px;
   }
-
-  .btns {
-    margin-left: 25px;
-    button {
-      border: none;
-      color: $mainclr;
-      background: transparent;
-      cursor: pointer;
-    }
-  }
-
-  span {
-    width: 40px;
-    color: $clr500;
-  }
-
 }

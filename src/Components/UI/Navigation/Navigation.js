@@ -3,13 +3,13 @@ import { NavLink } from 'react-router-dom'
 
 import classes from './Navigation.module.scss'
 
-const links =  [
-  {to:'/', label : 'Главная', exact: true},
-  {to:'/cart', label: <i className="fas fa-shopping-basket"></i>, 
-  exact: false, class: classes.cartLink, count:3}//redux
-  ]
+export const NavigationComponent = ({ cartItemsCount }) => {
 
-export const Navigation = () => {
+  const links =  [
+    {to:'/', label : 'Главная', exact: true},
+    {to:'/cart', label: <i className="fas fa-shopping-basket"></i>, 
+    exact: false, class: classes.cartLink, count:cartItemsCount}
+    ]
 
   const  renderLinks = links => {
     return links.map((link, index)=> {

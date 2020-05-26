@@ -1,13 +1,12 @@
 import React from 'react'
-import { Home } from 'Components/Pages/Home/Home'
-import { Navigation } from 'Components/UI/Navigation/Navigation'
-
 import {Switch, Route, BrowserRouter} from 'react-router-dom'
-import 'antd/dist/antd.css'
-import { Header } from './Components/UI/Header/Header'
-import { Cart } from './Components/Pages/Cart/Cart'
-import { Footer } from './Components/UI/Footer/Footer'
-import { Layout } from './Components/UI/Layout/Layout'
+
+import { Header } from 'Components/UI/Header/Header'
+import { Cart } from 'Components/Pages/Cart/index'
+import { Footer } from 'Components/UI/Footer/Footer'
+import { Layout } from 'Components/UI/Layout/Layout'
+import { Home } from 'Components/Pages/Home/index'
+import { Navigation } from 'Components/UI/Navigation/index'
 
 const App = () => {
   return (
