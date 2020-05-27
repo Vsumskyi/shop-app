@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import {NavLink} from 'react-router-dom'
+
 import classes from './Cart.module.scss'
 import { CartItem } from './CartItem/CartItem';
 
@@ -6,7 +8,7 @@ export const CartComponent = ({ cartItems, countPrice, price }) => {
 
   useEffect(() => {
     countPrice()
-  },[countPrice])
+  })
 
   const renderProducts = () => (
       <div className={classes.products}>
@@ -23,9 +25,11 @@ export const CartComponent = ({ cartItems, countPrice, price }) => {
   return (
   <div className={classes.Cart}> 
     {renderProducts()}
-    {items.length < 1 
+    {cartItems.length < 1 
       ?
-      <h2>Корзина пуста</h2>
+      <p>Корзина пуста!
+        <br/>
+        Вы можете продолжить покупки в&nbsp;<NavLink to={'/'}>каталоге товаров</NavLink> </p>
       :  
       <div className={classes.calc}>
         <div>

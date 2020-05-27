@@ -8,14 +8,17 @@ export const Card = ({ product, selectProduct }) => {
       <div 
         className={classes.Card}>
         <img alt="example" src={product.image} />
-        <span>{product.name} </span> 
-        <span>{product.count}</span>
+        <h4>{product.name} </h4> 
+        <h1>{product.price}₴</h1>
 
        {product.inCart
        ?
        <ProductCounter product={product}/>
        :
-       <button onClick={() => selectProduct(product)}>В корзину</button> }
+       <button 
+        onClick={() => selectProduct(product)}>
+          <i className="fas fa-shopping-cart"></i>  В корзину
+       </button> }
       </div>
   )
 }

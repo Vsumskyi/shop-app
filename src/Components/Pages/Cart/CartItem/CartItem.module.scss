@@ -10,6 +10,8 @@
   border-bottom: 1px solid $clr400;
   h3 {
     flex-grow: 1;
+    margin: 0;
+    text-transform: capitalize;
   }
   img {
     width: 30px;

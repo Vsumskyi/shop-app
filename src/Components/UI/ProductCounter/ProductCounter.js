@@ -23,7 +23,7 @@ export const ProductCounterComponent = ( { product, plusProduct, minusProduct, d
       <i className="fas fa-trash-alt"></i>
     </button>
 
-    <span>x {product.count * product.price}</span>
+    <span>  {product.count * product.price}грн</span>
 
   </div>
   )

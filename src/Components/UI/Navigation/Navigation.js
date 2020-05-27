@@ -7,7 +7,7 @@ export const NavigationComponent = ({ cartItemsCount }) => {
 
   const links =  [
     {to:'/', label : 'Главная', exact: true},
-    {to:'/cart', label: <i className="fas fa-shopping-basket"></i>, 
+    {to:'/cart', label: <i className="fas fa-shopping-cart"></i>, 
     exact: false, class: classes.cartLink, count:cartItemsCount}
     ]
 

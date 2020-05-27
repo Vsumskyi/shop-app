@@ -2,7 +2,8 @@
 
 .Layout {
   min-height: 100vh;
-  padding: 20px 0;
+  padding: 20px 30px;
+  background-color: $clr300;
 }
 
 .flexCenter {
@@ -24,5 +25,12 @@
 
 .spaceAround {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.flexStart {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }

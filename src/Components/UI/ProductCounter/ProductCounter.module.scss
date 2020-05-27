@@ -1,7 +1,9 @@
 @import 'vars.scss';
 
 .ProductCounter {
-  margin-left: 25px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 5px;
   button {
     border: none;
     color: $mainclr;

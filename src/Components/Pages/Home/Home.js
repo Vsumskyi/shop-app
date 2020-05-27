@@ -16,7 +16,7 @@ export const HomeComponent = ( {  ...rest } ) => {
    )
 
   return (
-     <Layout cls='spaceAround'>
+     <Layout cls='flexStart'>
       {renderCards()}
      </Layout >
     )
