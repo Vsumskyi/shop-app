@@ -10,16 +10,12 @@ export const CartComponent = ({ cartItems, countPrice, price }) => {
 	})
 
 	const renderProducts = () => (
-		<div className={classes.products}>
-			{cartItems.map(item => (
-				<CartItem key={item.id} product={item} />
-			))}
-		</div>
+		cartItems.map(item => <CartItem key={item.id} product={item} />)
 	)
-
+	
 	return (
 		<div className={classes.Cart}>
-			{renderProducts()}
+			{<div className={classes.products}>{renderProducts()}</div>}
 			{cartItems.length < 1 ? (
 				<p>
 					Корзина пуста!

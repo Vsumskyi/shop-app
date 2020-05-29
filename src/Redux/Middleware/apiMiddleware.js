@@ -9,7 +9,7 @@ const apiCall = ({
 	headers = {}
 }) => {
 	return new Promise((resolve, reject) => {
-		axios({ url: `${url}${endpoint}`, method, data: body })
+		axios({ url: `${url}${endpoint}`, method, data: body, headers })
 			.then(responce => resolve(responce))
 			.catch(err => reject(err))
 	})
@@ -22,7 +22,6 @@ export default state => next => action => {
 	next({ type: types.REQUEST })
 
 	const onSuccess = responce => {
-		console.log('responce', responce)
 		const resp = responce.data
 		next({ type: types.SUCCESS, ...resp })
 	}

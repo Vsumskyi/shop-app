@@ -7,6 +7,7 @@ import { Footer } from 'Components/UI/Footer/Footer'
 import { Layout } from 'Components/UI/Layout/Layout'
 import { Home } from 'Components/Pages/Home/index'
 import { Navigation } from 'Components/UI/Navigation/index'
+import { About } from './Components/Pages/About/About'
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <Layout>
         <Switch>
           <Route path='/cart' component={Cart}/>
+          <Route path='/about' component={About}/>
           <Route path='/' component={Home}/>
         </Switch>
       </Layout>

@@ -10,22 +10,18 @@ export const HomeComponent = ({	getProducts, loading, cardList,	selectProduct })
 		// eslint-disable-next-line
 	}, [])
 
-	const renderCards = () => (
-		<>
-			{!loading ? (
-				cardList.map(item => (
-					<Card
-						selectProduct={selectProduct}
-						product={item}
-						count={item.count}
-						key={item.id}
-					/>
-				))
-			) : (
-				<Loader />
-			)}
-		</>
+	const renderCardList = () => (
+		cardList.map(item => (
+			<Card
+				selectProduct={selectProduct}
+				product={item}
+				count={item.count}
+				key={item.id}
+			/>
+		))
 	)
+
+	const renderCards = () => <>{!loading ? renderCardList() : <Loader />}</>
 
 	return <Layout cls="flexStart">{renderCards()}</Layout>
 }

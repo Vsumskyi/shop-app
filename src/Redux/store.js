@@ -3,8 +3,7 @@ import api from './Middleware/apiMiddleware'
 import { composeWithDevTools} from 'redux-devtools-extension'
 import {rootReducer} from './Reducer/rootReducer'
 
-
 export const storeCreator = () => {
-  const store = composeWithDevTools(applyMiddleware(api))
-  return createStore(rootReducer, store)
+  const enhancer = composeWithDevTools(applyMiddleware(api))
+  return createStore(rootReducer, enhancer)
 }

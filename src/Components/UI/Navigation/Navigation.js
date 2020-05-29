@@ -6,6 +6,7 @@ import classes from './Navigation.module.scss'
 export const NavigationComponent = ({ cartItemsCount, loading }) => {
 	const links = [
 		{ to: '/', label: 'Главная', exact: true },
+		{ to: '/about', label: 'О нас', exact: true},
 		{
 			to: '/cart',
 			label: <i className="fas fa-shopping-cart"></i>,

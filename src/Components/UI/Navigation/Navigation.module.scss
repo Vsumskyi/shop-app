@@ -7,13 +7,16 @@
   align-items: baseline;
   a {
     color: $clr100;
+    margin-right: 40px;
     transition: all .45s ease;
+    text-decoration: none;
     &:hover {
       color: $clr50;
     }
   }
   .cartLink {
     margin-left: auto;
+    margin-right: 0;
     text-align: right;
     font-size: 20px;
     position: relative;
@@ -30,6 +33,7 @@
   }
   .active {
     color: $clr50;
+    text-decoration: underline;
   }
   .disable {
     cursor: not-allowed;
