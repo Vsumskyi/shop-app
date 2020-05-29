@@ -3,6 +3,8 @@
 .Cart {
   display: flex;
   justify-content: center;
+  border: 1px $clr200 solid;
+  background-color: $clr50;
   .calc {
     background-color: $clr300;
     display: flex;
@@ -16,7 +18,7 @@
       font-size: 34px;
     }
     button {
-      background-color: rgba(67,160,71 ,1);
+      background-color: $btn-color;
       box-shadow: 6px 7px 10px -7px #000000;
       color: $clr100;
       border: none;
@@ -25,6 +27,18 @@
       height: 40px;
       text-transform: uppercase;
       cursor: pointer;
+    }
+  }
+  p {
+    text-align: center;
+    white-space: pre-line;
+    a {
+      color: $mainclr;
+      text-decoration: none;
+      border-bottom: 1px dashed $mainclr;
+      &:hover {
+        border-bottom: none;
+      }
     }
   }
 }
