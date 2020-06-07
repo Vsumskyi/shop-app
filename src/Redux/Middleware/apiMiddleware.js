@@ -2,7 +2,7 @@ import axios from 'axios'
 import { API_REQUEST } from '../Actions/actionsTypes'
 
 const apiCall = ({
-	url = 'https://shopserver.firebaseapp.com',
+	url = 'https://server-shop.firebaseio.com/',
 	endpoint = '',
 	method = 'GET',
 	body = {},
@@ -23,7 +23,7 @@ export default state => next => action => {
 
 	const onSuccess = responce => {
 		const resp = responce.data
-		next({ type: types.SUCCESS, ...resp })
+		next({ type: types.SUCCESS, resp })
 	}
 
 	const onError = err => {

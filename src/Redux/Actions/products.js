@@ -1,5 +1,5 @@
 import { SELECT_PRODUCT, GET_PRODUCTS } from './actionsTypes'
-import {apiCall} from './api'
+import { apiCall } from './api'
 
 export const selectProductAction = product => ({
 	type: SELECT_PRODUCT,
@@ -7,8 +7,8 @@ export const selectProductAction = product => ({
 })
 
 export const getProductsAction = () => {
-  return apiCall({
-      types: GET_PRODUCTS,
-      endpoint: '/get-products'
-  })
+	return apiCall({
+		types: GET_PRODUCTS,
+		endpoint: '/products.json'
+	})
 }

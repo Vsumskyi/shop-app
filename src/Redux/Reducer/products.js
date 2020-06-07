@@ -9,7 +9,7 @@ const initialState = {
 	data: [],
 	selectedProduct: null,
 	error: null,
-	isLoaded: false 
+	isLoaded: false
 }
 
 const products = {
@@ -35,16 +35,16 @@ const products = {
 	[GET_PRODUCTS.SUCCESS]: (state = initialState, data) => {
 		return {
 			...state,
-			data: data.products,
+			data: data.resp,
 			error: null,
-			isLoaded: false 
+			isLoaded: false
 		}
 	},
 	[GET_PRODUCTS.FAILURE]: (state = initialState, { error }) => {
 		return {
 			...state,
 			error,
-			isLoaded: false 
+			isLoaded: false
 		}
 	},
 	[GET_PRODUCTS.REQUEST]: (state = initialState) => {
