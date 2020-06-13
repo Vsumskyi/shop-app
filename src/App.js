@@ -1,5 +1,5 @@
 import React from 'react'
-import {Switch, Route, BrowserRouter} from 'react-router-dom'
+import { Switch, Route, BrowserRouter } from 'react-router-dom'
 
 import { Header } from 'Components/UI/Header/Header'
 import { Cart } from 'Components/Pages/Cart/index'
@@ -11,21 +11,21 @@ import { About } from './Components/Pages/About/About'
 
 const App = () => {
   return (
-      <BrowserRouter>
-        <Header>
-          <Navigation />
-        </Header>
-        
+    <BrowserRouter>
+      <Header>
+        <Navigation />
+      </Header>
+
       <Layout>
         <Switch>
-          <Route path='/cart' component={Cart}/>
-          <Route path='/about' component={About}/>
-          <Route path='/' component={Home}/>
+          <Route path='/cart' component={Cart} />
+          <Route path='/about' component={About} />
+          <Route path='/' component={Home} />
         </Switch>
       </Layout>
 
-        <Footer />
-      </BrowserRouter>
+      <Footer />
+    </BrowserRouter>
   )
 }
 export default App

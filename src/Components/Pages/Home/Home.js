@@ -3,29 +3,35 @@ import React, { useEffect } from 'react'
 import { Card } from './Card/Card'
 import { Layout } from 'Components/UI/Layout/Layout'
 import { Loader } from 'Components/UI/Loader/Loader'
+import { SortInput } from 'Components/UI/SortInput'
 
 export const HomeComponent = ({
-	getProducts,
-	loading,
-	cardList,
-	selectProduct
+  getProducts,
+  loading,
+  cardList,
+  selectProduct
 }) => {
-	useEffect(() => {
-		!cardList.length && getProducts()
-		// eslint-disable-next-line
-	}, [])
+  useEffect(() => {
+    !cardList.length && getProducts()
+    // eslint-disable-next-line
+  }, [])
 
-	const renderCardList = () =>
-		cardList.map(item => (
-			<Card
-				selectProduct={selectProduct}
-				product={item}
-				count={item.count}
-				key={item.id}
-			/>
-		))
+  const renderCardList = () =>
+    cardList.map(item => (
+      <Card
+        selectProduct={selectProduct}
+        product={item}
+        count={item.count}
+        key={item.id}
+      />
+    ))
 
-	const renderCards = () => <>{!loading ? renderCardList() : <Loader />}</>
+  const renderCards = () => <>{!loading ? renderCardList() : <Loader />}</>
 
-	return <Layout cls="flexStart">{renderCards()}</Layout>
+  return (
+    <>
+      <SortInput />
+      <Layout cls='flexStart'>{renderCards()}</Layout>
+    </>
+  )
 }

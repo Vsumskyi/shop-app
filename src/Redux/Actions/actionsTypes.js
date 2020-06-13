@@ -10,3 +10,5 @@ export const COUNT_PRICE_PRODUCTS = 'COUNT_PRICE'
 export const API_REQUEST = 'API_REQUEST'
 
 export const GET_PRODUCTS = createAsyncAction('GET_PRODUCTS')
+
+export const SORT_PRODUCTS = 'SORT_PRODICTS'
