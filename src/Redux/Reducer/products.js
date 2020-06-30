@@ -1,97 +1,67 @@
-import { SELECT_PRODUCT, DELETE_PRODUCT } from "../Actions/actionsTypes"
-import {createReducer} from 'Helpers/reducer'
+import {
+  SELECT_PRODUCT,
+  DELETE_PRODUCT,
+  GET_PRODUCTS,
+  SORT_PRODUCTS
+} from '../Actions/actionsTypes'
+import { createReducer } from 'Helpers/reducer'
 
 const initialState = {
-  data: [
-    {
-       id: 1,
-       name: "шарик",
-       image: "https://heroeswm-uvz.at.ua/imgs/katalog_statey/tumblr_m07iyfLy0F1qce1ag.jpg",
-       price: 15,
-       count: 1
-    },
-    {
-       id: 2,
-       name: "футболка",
-       image: "https://i.pinimg.com/originals/da/8b/d1/da8bd1d87e3e7c8d708571515fdc2725.jpg",
-       price: 15,
-       count: 1
-    },
-    {
-       id: 4,
-       name: "шарик 2",
-       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png",
-       price: 15,
-       count: 1
-    },
-    {
-      id: 5,
-      name: "шарик",
-      image: "https://heroeswm-uvz.at.ua/imgs/katalog_statey/tumblr_m07iyfLy0F1qce1ag.jpg",
-      price: 15,
-      count: 1
-   },
-   {
-      id: 6,
-      name: "футболка",
-      image: "https://i.pinimg.com/originals/da/8b/d1/da8bd1d87e3e7c8d708571515fdc2725.jpg",
-      price: 15,
-      count: 1
-   },
-   {
-      id: 7,
-      name: "шарик 2",
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png",
-      price: 15,
-      count: 1
-   },
-   {
-    id: 8,
-    name: "шарик",
-    image: "https://heroeswm-uvz.at.ua/imgs/katalog_statey/tumblr_m07iyfLy0F1qce1ag.jpg",
-    price: 15,
-    count: 1
-  },
-  {
-      id: 9,
-      name: "футболка",
-      image: "https://i.pinimg.com/originals/da/8b/d1/da8bd1d87e3e7c8d708571515fdc2725.jpg",
-      price: 15,
-      count: 1
-  },
-  {
-      id: 10,
-      name: "шарик 2",
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png",
-      price: 15,
-      count: 1
-  },
-  ],
-  selectedProduct: null
+  data: [],
+  selectedProduct: null,
+  error: null,
+  isLoaded: false,
+  sortBy: 'name',
+  sortAscending: true
 }
 
-
 const products = {
-  [SELECT_PRODUCT]: (state = initialState, action) => {
+  [SELECT_PRODUCT]: (state = initialState, { product }) => {
     return {
       ...state,
       data: state.data.map(i => {
-        if (i.id === action.product.id ) i.inCart = true
+        if (i.id === product.id) i.inCart = true
         return i
       }),
-      selectedProduct: action.product,
+      selectedProduct: product
     }
   },
   [DELETE_PRODUCT]: (state = initialState, action) => {
-      return {
-        ...state,
-        data: state.data.map(i => {
-          if (i.id === action.id ) i.inCart = false
-          return i
-        })
-      }
+    return {
+      ...state,
+      data: state.data.map(i => {
+        if (i.id === action.id) i.inCart = false
+        return i
+      })
+    }
+  },
+  [GET_PRODUCTS.SUCCESS]: (state = initialState, data) => {
+    return {
+      ...state,
+      data: data.resp,
+      error: null,
+      isLoaded: false
+    }
+  },
+  [GET_PRODUCTS.FAILURE]: (state = initialState, { error }) => {
+    return {
+      ...state,
+      error,
+      isLoaded: false
+    }
+  },
+  [GET_PRODUCTS.REQUEST]: (state = initialState) => {
+    return {
+      ...state,
+      isLoaded: true
+    }
+  },
+  [SORT_PRODUCTS]: (state = initialState, { sortBy, sortAscending }) => {
+    return {
+      ...state,
+      sortBy,
+      sortAscending
+    }
   }
 }
 export default createReducer(initialState, products)
-
-

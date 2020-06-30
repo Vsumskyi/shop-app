@@ -1,6 +1,5 @@
 @import 'vars.scss';
 
-
 .Navigation {
   width: 100%;
   padding: 0 50px;
@@ -8,14 +7,16 @@
   align-items: baseline;
   a {
     color: $clr100;
-    transition: color .45s ease;
+    margin-right: 40px;
+    transition: all .45s ease;
+    text-decoration: none;
     &:hover {
       color: $clr50;
     }
   }
-
   .cartLink {
     margin-left: auto;
+    margin-right: 0;
     text-align: right;
     font-size: 20px;
     position: relative;
@@ -30,10 +31,13 @@
       font-weight: bold;
     }
   }
-  
   .active {
     color: $clr50;
+    text-decoration: underline;
   }
-
+  .disable {
+    cursor: not-allowed;
+    opacity: .4;
+  }
 }
 

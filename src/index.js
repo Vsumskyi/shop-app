@@ -7,6 +7,7 @@ import { storeCreator } from './Redux/store'
 import * as serviceWorker from './serviceWorker';
 
 const store = storeCreator()
+
 ReactDOM.render(
   <React.StrictMode>
 
